@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LinearLayoutThirdActivity">
+    tools:context=".LinearLayoutThirdActivity"
+    >
 
     <LinearLayout
         android:orientation="vertical"
@@ -54,52 +55,197 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-        <!-- 文本水平垂直居中 -->
-        <TextView
+        android:layout_height="50dp"
+        android:layout_weight="0.34"
+        android:orientation="horizontal"
+        android:background="#ffffff">
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="#aa0000"
+            android:orientation="vertical"
             android:gravity="center_horizontal|center_vertical"
-            android:text="红色" />
+            android:weightSum="1">
+
+            <!-- 文本水平垂直居中 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:gravity="center_horizontal|center_vertical"
+                android:textSize="25dp"
+                android:textColor="@color/blue" />
+            <!-- 水平居中 顶部对齐 -->
+
+            <!-- 文本水平垂直居中 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="今日赚分"
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_gravity="center_horizontal"
+                android:textSize="25dp"
+                android:textColor="#ccc"/>
+            <!-- 水平居中 顶部对齐 -->
+
+        </LinearLayout>
+
         <!-- 水平居中 顶部对齐 -->
         <TextView
-            android:layout_width="1dp"
+            android:layout_width="5dp"
             android:layout_height="fill_parent"
             android:background="#EEEFFF"
-            android:gravity="top|center_horizontal"
-            android:text="绿色" />
-        <!-- 水平居中顶部对齐 -->
-        <!-- 垂直居中 水平靠左 -->
-        <TextView
+            android:gravity="top|center_horizontal"/>
+         <!--水平居中顶部对齐-->
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="#aaaa00"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="黄色" />
+            android:orientation="vertical"
+            android:gravity="center_horizontal|center_vertical">
+
+            <!-- 垂直居中 水平靠左 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="130"
+                android:gravity="center_horizontal|center_vertical"
+                android:textSize="25dp"
+                android:textColor="@color/blue"
+                android:layout_gravity="center_horizontal" />
+
+            <!-- 垂直居中 水平靠左 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账户余额"
+                android:gravity="center_horizontal|center_vertical"
+                android:textSize="25dp"
+                android:textColor="#ccc" />
+        </LinearLayout>
+
+
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal|center_vertical">
 
-        <Button
-            android:layout_width="fill_parent"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="left"
-            android:text="第一行" />
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1">
 
-        <Button
-            android:layout_width="fill_parent"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.15"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <ImageButton
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_launcher" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="签到"
+                    android:gravity="center"
+                    android:id="@+id/textView3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.15"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <ImageButton
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_launcher" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="签到"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <ImageButton
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_launcher" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="签到"
+                    android:gravity="center"
+                    android:id="@+id/textView4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <ImageButton
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton1"
+                    android:src="@drawable/ic_launcher" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="签到"
+                    android:gravity="center"
+                    android:id="@+id/textView5" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TableRow
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="第二行" />
+            android:layout_gravity="center_horizontal">
+
+        </TableRow>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="100积分=1元"
+            android:background="#E6E6E6"
+            android:padding="5dp"/>
     </LinearLayout>
+
+
 </LinearLayout>
