@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">海贼助手</string>
     <string name="action_settings">配置</string>
+    <string name="email_hint">请输入</string>
 </resources>

@@ -34,8 +34,6 @@ public class AppStartActivity extends Activity {
             public void onAnimationStart(Animation animation) {}
 
         });
-
-
     }
 
     /**

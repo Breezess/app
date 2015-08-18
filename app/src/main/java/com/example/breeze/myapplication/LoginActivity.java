@@ -1,32 +1,41 @@
 package com.example.breeze.myapplication;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by Breeze on 15/8/16.
  */
-public class LoginActivity extends Activity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        // 返回箭头（默认不显示）
-        getActionBar().setDisplayHomeAsUpEnabled(false);
-        // 左侧图标点击事件使能
-        getActionBar().setHomeButtonEnabled(true);
-        // 使左上角图标(系统)是否显示
-        getActionBar().setDisplayShowHomeEnabled(false);
-        // 显示标题
-        getActionBar().setDisplayShowTitleEnabled(false);
-        //显示自定义视图
-        getActionBar().setDisplayShowCustomEnabled(true);
-        View actionbarLayout = LayoutInflater.from(this).inflate(
-                R.layout.login, null);
-        getActionBar().setCustomView(actionbarLayout);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar_login);
+        setContentView(R.layout.login);
+        Button button = (Button)findViewById(R.id.button2);
+        button.setOnClickListener(this);
     }
+
+    public void onClick(View v) {
+        EditText text = (EditText) findViewById(R.id.code);
+        String value = text.getText().toString();
+        if(value == null || value.isEmpty()) {
+            Toast.makeText(this, "请填写最游验证码", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
 
 }
