@@ -20,8 +20,7 @@ public class AppStartActivity extends Activity {
         final View view = View.inflate(this, R.layout.start, null);
         setContentView(view);
 
-        AdManager.getInstance(this).init("aeb64ae87dcc4d2c", "3da7f6ac0e8df4d0", false);
-
+        AdManager.getInstance(this).init("47dd68ac7484b076", "3c9dac355822f41d", false);
 
         //渐变展示启动屏
         AlphaAnimation aa = new AlphaAnimation(0.3f,1.0f);
