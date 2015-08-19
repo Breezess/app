@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 
+import net.youmi.android.AdManager;
+
 /**
  * Created by Breeze on 15/8/16.
  */
@@ -17,6 +19,9 @@ public class AppStartActivity extends Activity {
         super.onCreate(savedInstanceState);
         final View view = View.inflate(this, R.layout.start, null);
         setContentView(view);
+
+        AdManager.getInstance(this).init("aeb64ae87dcc4d2c", "3da7f6ac0e8df4d0", false);
+
 
         //渐变展示启动屏
         AlphaAnimation aa = new AlphaAnimation(0.3f,1.0f);
@@ -35,6 +40,7 @@ public class AppStartActivity extends Activity {
 
         });
     }
+
 
     /**
      * 跳转到...

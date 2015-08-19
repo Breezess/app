@@ -135,7 +135,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center_horizontal|center_vertical">
+        android:gravity="center_horizontal|center_vertical"
+        android:weightSum="1">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -175,6 +176,7 @@
                 android:paddingRight="10dp">
 
                 <ImageButton
+                    android:id="@+id/button2"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_launcher" />
@@ -183,7 +185,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="签到"
+                    android:text="任务"
                     android:gravity="center" />
             </LinearLayout>
 
@@ -203,7 +205,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="签到"
+                    android:text="有奖"
                     android:gravity="center"
                     android:id="@+id/textView4" />
             </LinearLayout>
@@ -225,18 +227,166 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="签到"
+                    android:text="帮助"
                     android:gravity="center"
                     android:id="@+id/textView5" />
             </LinearLayout>
         </LinearLayout>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="113dp"
+            android:id="@+id/scrollView"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.95"
+            android:background="#ffffff">
 
-        </TableRow>
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal">
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:longClickable="true"
+                    android:id="@+id/man_task1">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_launcher"
+                        android:id="@+id/imageButton" />
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="有米任务区" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="任务数多，返分徐速"/>
+                    </LinearLayout>
+
+                </TableRow>
+                <TableRow android:layout_height="1px" android:background="#BDBDBD">
+                    <TextView android:layout_span="2" android:layout_height="1px"
+                        android:layout_width="fill_parent" android:text="">
+                    </TextView>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_launcher"/>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="有米任务区" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="任务数多，返分徐速"/>
+                    </LinearLayout>
+
+                </TableRow>
+                <TableRow android:layout_height="1px" android:background="#BDBDBD">
+                    <TextView android:layout_span="2" android:layout_height="1px"
+                        android:layout_width="fill_parent" android:text="">
+                    </TextView>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_launcher"/>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="有米任务区" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="任务数多，返分徐速"/>
+                    </LinearLayout>
+
+                </TableRow>
+                <TableRow android:layout_height="1px" android:background="#BDBDBD">
+                    <TextView android:layout_span="2" android:layout_height="1px"
+                        android:layout_width="fill_parent" android:text="">
+                    </TextView>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_launcher"/>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="有米任务区" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="任务数多，返分徐速"/>
+                    </LinearLayout>
+
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
 
         <TextView
             android:layout_width="fill_parent"

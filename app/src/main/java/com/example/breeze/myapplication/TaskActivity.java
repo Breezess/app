@@ -1,49 +1,46 @@
 package com.example.breeze.myapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import net.youmi.android.offers.OffersManager;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+/**
+ * Created by sunhq on 2015/8/19.
+ */
+public class TaskActivity  extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar_main);
-        setContentView(R.layout.activity_main);
+        getSupportActionBar().setCustomView(R.layout.actionbar_task);
+        setContentView(R.layout.task);
 
-        ImageButton button = (ImageButton) findViewById(R.id.button2);
+        TableRow button = (TableRow) findViewById(R.id.task1);
         button.setOnClickListener(this);
 
-        TableRow task1 = (TableRow) findViewById(R.id.man_task1);
-        task1.setOnClickListener(this);
+        TextView back = (TextView) findViewById(R.id.task_back);
+        back.setOnClickListener(this);
     }
 
-    /**
-     * 跳转到...
-     */
-    private void redirectTo(){
-        Intent intent = new Intent(this, TaskActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button2:
-                redirectTo();
+            case R.id.task_back:
+                finish();
                 break;
-            case R.id.man_task1:
+            case R.id.task1:
                 OffersManager.getInstance(this).onAppLaunch();
                 OffersManager.getInstance(this).showOffersWall();
                 break;
         }
     }
+
+    private void onDestroy(Bundle savedInstanceState) {
+        OffersManager.getInstance(this).onAppExit();
+    }
+
 }
