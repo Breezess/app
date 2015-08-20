@@ -93,7 +93,7 @@
 
         <!-- 水平居中 顶部对齐 -->
         <TextView
-            android:layout_width="5dp"
+            android:layout_width="1dp"
             android:layout_height="fill_parent"
             android:background="#EEEFFF"
             android:gravity="top|center_horizontal"/>
@@ -246,6 +246,43 @@
                 android:layout_height="fill_parent"
                 android:layout_gravity="center_horizontal">
 
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:id="@+id/man_task2">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_launcher"/>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="万普任务区" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="任务多更新快，刷分利器"/>
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow android:layout_height="1px" android:background="#BDBDBD">
+                    <TextView android:layout_span="2" android:layout_height="1px"
+                        android:layout_width="fill_parent" android:text="">
+                    </TextView>
+                </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -280,111 +317,78 @@
                     </LinearLayout>
 
                 </TableRow>
-                <TableRow android:layout_height="1px" android:background="#BDBDBD">
-                    <TextView android:layout_span="2" android:layout_height="1px"
-                        android:layout_width="fill_parent" android:text="">
-                    </TextView>
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
 
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_launcher"/>
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="有米任务区" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="任务数多，返分徐速"/>
-                    </LinearLayout>
+                <!--<TableRow android:layout_height="1px" android:background="#BDBDBD">-->
+                    <!--<TextView android:layout_span="2" android:layout_height="1px"-->
+                        <!--android:layout_width="fill_parent" android:text="">-->
+                    <!--</TextView>-->
+                <!--</TableRow>-->
+                <!--<TableRow-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:paddingTop="5dp"-->
+                    <!--android:paddingBottom="5dp"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--android:paddingRight="10dp">-->
 
-                </TableRow>
-                <TableRow android:layout_height="1px" android:background="#BDBDBD">
-                    <TextView android:layout_span="2" android:layout_height="1px"
-                        android:layout_width="fill_parent" android:text="">
-                    </TextView>
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    <!--<ImageButton-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:src="@drawable/ic_launcher"/>-->
+                    <!--<LinearLayout-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="match_parent">-->
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+                            <!--android:text="有米任务区" />-->
 
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_launcher"/>
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="有米任务区" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+                            <!--android:text="任务数多，返分徐速"/>-->
+                    <!--</LinearLayout>-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="任务数多，返分徐速"/>
-                    </LinearLayout>
+                <!--</TableRow>-->
+                <!--<TableRow android:layout_height="1px" android:background="#BDBDBD">-->
+                    <!--<TextView android:layout_span="2" android:layout_height="1px"-->
+                        <!--android:layout_width="fill_parent" android:text="">-->
+                    <!--</TextView>-->
+                <!--</TableRow>-->
+                <!--<TableRow-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:paddingTop="5dp"-->
+                    <!--android:paddingBottom="5dp"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--android:paddingRight="10dp">-->
 
-                </TableRow>
-                <TableRow android:layout_height="1px" android:background="#BDBDBD">
-                    <TextView android:layout_span="2" android:layout_height="1px"
-                        android:layout_width="fill_parent" android:text="">
-                    </TextView>
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    <!--<ImageButton-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:src="@drawable/ic_launcher"/>-->
+                    <!--<LinearLayout-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="match_parent">-->
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+                            <!--android:text="有米任务区" />-->
 
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_launcher"/>
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="有米任务区" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+                            <!--android:text="任务数多，返分徐速"/>-->
+                    <!--</LinearLayout>-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="任务数多，返分徐速"/>
-                    </LinearLayout>
-
-                </TableRow>
+                <!--</TableRow>-->
             </TableLayout>
         </ScrollView>
 

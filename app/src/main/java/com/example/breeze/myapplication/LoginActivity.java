@@ -1,5 +1,6 @@
 package com.example.breeze.myapplication;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -25,14 +26,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void onClick(View v) {
+
         EditText text = (EditText) findViewById(R.id.code);
         String value = text.getText().toString();
         if(value == null || value.isEmpty()) {
             Toast.makeText(this, "请填写最游验证码", Toast.LENGTH_SHORT).show();
         }
         else {
+            ProgressDialog pDialog = new ProgressDialog(this);
+            pDialog.setMessage("Loading...");
+            pDialog.show();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+            pDialog.dismiss();
             finish();
         }
     }

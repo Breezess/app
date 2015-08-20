@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import net.youmi.android.offers.OffersManager;
 
+import cn.waps.AppConnect;
+
 /**
  * Created by sunhq on 2015/8/19.
  */
@@ -23,6 +25,9 @@ public class TaskActivity  extends AppCompatActivity implements View.OnClickList
         TableRow button = (TableRow) findViewById(R.id.task1);
         button.setOnClickListener(this);
 
+        TableRow task2 = (TableRow) findViewById(R.id.task2);
+        task2.setOnClickListener(this);
+
         TextView back = (TextView) findViewById(R.id.task_back);
         back.setOnClickListener(this);
     }
@@ -36,11 +41,20 @@ public class TaskActivity  extends AppCompatActivity implements View.OnClickList
                 OffersManager.getInstance(this).onAppLaunch();
                 OffersManager.getInstance(this).showOffersWall();
                 break;
+            case R.id.task2:
+                AppConnect.getInstance(this).showOffers(this);
+                break;
         }
     }
 
     private void onDestroy(Bundle savedInstanceState) {
         OffersManager.getInstance(this).onAppExit();
+    }
+
+    @Override
+    protected void onDestroy() {
+        AppConnect.getInstance(this).close();
+        super.onDestroy();
     }
 
 }
