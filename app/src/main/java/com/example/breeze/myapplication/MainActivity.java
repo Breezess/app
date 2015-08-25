@@ -11,10 +11,14 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.youmi.android.offers.OffersManager;
 
 import cn.waps.AppConnect;
+import im.fir.sdk.FIR;
+import im.fir.sdk.callback.VersionCheckCallback;
+import im.fir.sdk.version.AppVersion;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +28,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.actionbar_main);
         setContentView(R.layout.activity_main);
+
+        FIR.init(this);
+        FIR.setDebug(true);
+        FIRUtils.checkForUpdate(this, true);
 
         ImageButton button = (ImageButton) findViewById(R.id.button2);
         button.setOnClickListener(this);
