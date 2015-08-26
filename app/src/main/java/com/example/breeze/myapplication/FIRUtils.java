@@ -15,11 +15,11 @@ import im.fir.sdk.version.AppVersion;
 public class FIRUtils {
 
     public final static void checkForUpdate(Context context, boolean isShowToast) {
-        if (BuildConfig.DEBUG){
+//        if (BuildConfig.DEBUG){
             FIR.checkForUpdateInFIR(FIR.GENERAL_KEY, callback(context, isShowToast));
-        } else {
-            FIR.checkForUpdateInAppStore(callback(context, isShowToast));
-        }
+//        } else {
+//            FIR.checkForUpdateInAppStore(callback(context, isShowToast));
+//        }
     }
 
     static VersionCheckCallback callback(final Context context, final boolean isShowToast) {

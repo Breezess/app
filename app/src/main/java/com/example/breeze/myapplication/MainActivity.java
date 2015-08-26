@@ -38,12 +38,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         TableRow task1 = (TableRow) findViewById(R.id.man_task1);
         task1.setOnClickListener(this);
+        ImageButton man_task1_image = (ImageButton) findViewById(R.id.man_task1_image);
+        man_task1_image.setOnClickListener(this);
 
         TableRow task2 = (TableRow) findViewById(R.id.man_task2);
         task2.setOnClickListener(this);
+        ImageButton man_task2_image = (ImageButton) findViewById(R.id.man_task2_image);
+        man_task2_image.setOnClickListener(this);
 
         TextView exchange = (TextView) findViewById(R.id.exchange);
         exchange.setOnClickListener(this);
+
+
+        ImageButton button1 = (ImageButton) findViewById(R.id.button1);
+        button1.setOnClickListener(this);
+        ImageButton button3 = (ImageButton) findViewById(R.id.button3);
+        button3.setOnClickListener(this);
     }
 
     /**
@@ -61,10 +71,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 redirectTo();
                 break;
             case R.id.man_task1:
+            case R.id.man_task1_image:
                 OffersManager.getInstance(this).onAppLaunch();
                 OffersManager.getInstance(this).showOffersWall();
                 break;
             case R.id.man_task2:
+            case R.id.man_task2_image:
                 AppConnect.getInstance(this).showOffers(this);
                 break;
             case R.id.exchange:
@@ -79,6 +91,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Intent("android.intent.action.VIEW", Uri.parse("http://weixin.qq.com/"));
                     startActivity(viewIntent);
                 }
+                break;
+            case R.id.button1:
+            case R.id.button3:
+                Toast.makeText(this, "功能正在努力开发中.", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

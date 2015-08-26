@@ -136,27 +136,33 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:gravity="center_horizontal|center_vertical"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:background="#ECECFF">
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:background="#ECF5FF">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.15"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
+                android:layout_weight="0.25"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
 
                 <ImageButton
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_launcher" />
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/tab1"
+                    android:background="#ECF5FF"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/button1"/>
 
                 <TextView
                     android:layout_width="fill_parent"
@@ -171,15 +177,18 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.15"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
+                android:layout_weight="0.25"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
 
                 <ImageButton
                     android:id="@+id/button2"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_launcher" />
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/tab3"
+                    android:background="#ECF5FF"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center_horizontal" />
 
                 <TextView
                     android:layout_width="fill_parent"
@@ -193,13 +202,18 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
+                android:layout_weight="0.25"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
 
                 <ImageButton
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_launcher" />
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/tab4"
+                    android:background="#ECF5FF"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/button3" />
 
                 <TextView
                     android:layout_width="fill_parent"
@@ -214,14 +228,18 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
+                android:layout_weight="0.25"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
 
                 <ImageButton
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:id="@+id/imageButton1"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/tab11"
+                    android:background="#ECF5FF"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center_horizontal" />
 
                 <TextView
                     android:layout_width="fill_parent"
@@ -256,24 +274,32 @@
                     android:id="@+id/man_task2">
 
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_launcher"/>
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/taskw"
+                        android:background="#ffffff"
+                        android:scaleType="fitCenter"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/man_task2_image"/>
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingTop="3dp">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="万普任务区" />
+                            android:text="万普任务区"
+                            android:textColor="#000000" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="任务多更新快，刷分利器"/>
+                            android:text="任务多更新快，刷分利器" />
                     </LinearLayout>
 
                 </TableRow>
@@ -295,19 +321,26 @@
                     android:id="@+id/man_task1">
 
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_launcher"
-                        android:id="@+id/imageButton" />
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/tasky"
+                        android:scaleType="centerCrop"
+                        android:background="#ffffff"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/man_task1_image"/>
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingTop="3dp">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="有米任务区" />
+                            android:text="有米任务区"
+                            android:textColor="#000000" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -318,88 +351,33 @@
 
                 </TableRow>
 
-
-                <!--<TableRow android:layout_height="1px" android:background="#BDBDBD">-->
-                    <!--<TextView android:layout_span="2" android:layout_height="1px"-->
-                        <!--android:layout_width="fill_parent" android:text="">-->
-                    <!--</TextView>-->
-                <!--</TableRow>-->
-                <!--<TableRow-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:paddingTop="5dp"-->
-                    <!--android:paddingBottom="5dp"-->
-                    <!--android:paddingLeft="10dp"-->
-                    <!--android:paddingRight="10dp">-->
-
-                    <!--<ImageButton-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:src="@drawable/ic_launcher"/>-->
-                    <!--<LinearLayout-->
-                        <!--android:orientation="vertical"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="match_parent">-->
-                        <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
-                            <!--android:text="有米任务区" />-->
-
-                        <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
-                            <!--android:text="任务数多，返分徐速"/>-->
-                    <!--</LinearLayout>-->
-
-                <!--</TableRow>-->
-                <!--<TableRow android:layout_height="1px" android:background="#BDBDBD">-->
-                    <!--<TextView android:layout_span="2" android:layout_height="1px"-->
-                        <!--android:layout_width="fill_parent" android:text="">-->
-                    <!--</TextView>-->
-                <!--</TableRow>-->
-                <!--<TableRow-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:paddingTop="5dp"-->
-                    <!--android:paddingBottom="5dp"-->
-                    <!--android:paddingLeft="10dp"-->
-                    <!--android:paddingRight="10dp">-->
-
-                    <!--<ImageButton-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:src="@drawable/ic_launcher"/>-->
-                    <!--<LinearLayout-->
-                        <!--android:orientation="vertical"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="match_parent">-->
-                        <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
-                            <!--android:text="有米任务区" />-->
-
-                        <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
-                            <!--android:text="任务数多，返分徐速"/>-->
-                    <!--</LinearLayout>-->
-
-                <!--</TableRow>-->
             </TableLayout>
         </ScrollView>
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="30dp"
-            android:gravity="center"
-            android:text="100积分=1元"
-            android:background="#E6E6E6"
-            android:padding="5dp"/>
-    </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#ECECFF">
 
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/imageView2"
+                android:src="@drawable/alert"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100积分=1元"
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
