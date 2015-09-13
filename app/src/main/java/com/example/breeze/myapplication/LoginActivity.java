@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.SyncAdapterType;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -53,12 +54,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private StringRequest mStringRequest;
     private Context mContext;
 
-    // json object response url
-    private String urlJsonObj = "http://api.androidhive.info/volley/person_object.json";
-
-    // json array response url
-    private String urlJsonArry = "http://api.androidhive.info/volley/person_array.json";
-
     private static String TAG = MainActivity.class.getSimpleName();
 
     private EditText text;
@@ -82,6 +77,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.login);
         Button button = (Button)findViewById(R.id.button2);
         button.setOnClickListener(this);
+        SharedPreferences user = getSharedPreferences("userInfo", MODE_PRIVATE);
+        int uid = user.getInt("uid", 0);
+        if (uid != 0) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
     }
 
     public void onClick(View v) {
@@ -136,13 +139,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                if (deviceName != "") {
 //                    deviceName = AESCrypt.encrypt(password, deviceName);
 //                }
-                obj.put("device_name", "");
+                obj.put("device_name", AESCrypt.encrypt(password, ""));
                 obj.put("android_id", AESCrypt.encrypt(password, android_id));
 
                 String mac = getMacAddress(this);
-                if (mac != null) {
-                    mac = AESCrypt.encrypt(password, mac);
-                }
+                mac = AESCrypt.encrypt(password, mac);
                 obj.put("mac", mac);
                 obj.put("idr", AESCrypt.encrypt(password, this.getPackageName()));
                 obj.put("net_type", AESCrypt.encrypt(password, String.valueOf(net_type)));
@@ -158,11 +159,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     obj.put("ssid", AESCrypt.encrypt(password, ssid));
                 }
                 else {
-                    obj.put("bssid", "");
-                    obj.put("ssid", "");
+                    obj.put("bssid", AESCrypt.encrypt(password, ""));
+                    obj.put("ssid", AESCrypt.encrypt(password, ""));
                 }
 
-                obj.put("uuid", "");
+                obj.put("uuid", AESCrypt.encrypt(password, ""));
 
                 obj.put("jb", AESCrypt.encrypt(password, String.valueOf(haveRoot())));
 
@@ -187,10 +188,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             return;
                         }
 
+                        SharedPreferences user = getSharedPreferences("userInfo", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = user.edit();
+                        editor.putInt("uid", data.getInt("uid"));
+                        editor.putString("nickname", data.getString("nickname"));
+                        editor.putString("headimage", data.getString("headimage"));
+                        editor.commit();
+                        int uid = user.getInt("uid", 0);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
 
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
