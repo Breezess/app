@@ -150,8 +150,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
                 if (net_type == NETWORKTYPE_WIFI) {
-                    WifiManager wifiManager = (WifiManager) mContext
-                            .getSystemService(Context.WIFI_SERVICE);
+                    WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
                     WifiInfo wifiInfo = wifiManager.getConnectionInfo();
                     String bssid = wifiInfo.getBSSID();
                     String ssid = wifiInfo.getSSID();

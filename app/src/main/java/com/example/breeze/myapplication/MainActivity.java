@@ -78,11 +78,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView exchange = (TextView) findViewById(R.id.exchange);
         exchange.setOnClickListener(this);
 
-//        TextView help = (TextView) findViewById(R.id.help);
-//        help.setOnClickListener(this);
+        ImageButton help = (ImageButton) findViewById(R.id.help);
+        help.setOnClickListener(this);
 
-        ImageButton about = (ImageButton) findViewById(R.id.about);
-        about.setOnClickListener(this);
+//        TextView about = (TextView) findViewById(R.id.about);
+//        about.setOnClickListener(this);
 
         ImageButton button1 = (ImageButton) findViewById(R.id.button1);
         button1.setOnClickListener(this);
@@ -168,7 +168,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(), "连接服务器失败", Toast.LENGTH_SHORT).show();
             }
 
-
         });
 
         mRequestQueue.add(jsonObjRequest);
@@ -219,10 +218,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "功能正在努力开发中.", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.help:
-
-                break;
-            case R.id.about:
-                Intent intent = new Intent(this, AboutActivity.class);
+                Intent intent = new Intent(this, HelpActivity.class);
                 startActivity(intent);
                 break;
         }

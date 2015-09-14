@@ -237,7 +237,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:id="@+id/about"
+                    android:id="@+id/help"
                     android:src="@drawable/tab11"
                     android:background="#ECF5FF"
                     android:scaleType="centerCrop"
