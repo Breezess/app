@@ -191,15 +191,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         SharedPreferences user = getSharedPreferences("userInfo", MODE_PRIVATE);
                         SharedPreferences.Editor editor = user.edit();
                         editor.putInt("uid", data.getInt("uid"));
+                        editor.putString("openid", data.getString("openid"));
                         editor.putString("nickname", data.getString("nickname"));
                         editor.putString("headimage", data.getString("headimage"));
                         editor.commit();
-                        int uid = user.getInt("uid", 0);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
 
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
@@ -249,7 +248,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * 获取网络状态，wifi,wap,2g,3g.
      *
      * @param context 上下文
-     * @return int 网络状态 {@link #NETWORKTYPE_2G},{@link #NETWORKTYPE_3G},          *{@link #NETWORKTYPE_INVALID},{@link #NETWORKTYPE_WAP}* <p>{@link #NETWORKTYPE_WIFI}
+     * @return int 网络状态 {@link #NETWORKTYPE_2G},{@link #NETWORKTYPE_3G},
+     * {@link #NETWORKTYPE_INVALID},{@link #NETWORKTYPE_WAP}* <p>{@link #NETWORKTYPE_WIFI}
      */
     public static int getNetWorkType(Context context) {
         ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

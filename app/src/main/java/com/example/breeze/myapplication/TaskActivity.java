@@ -8,6 +8,8 @@ import android.widget.ImageButton;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.yql.sdk.DRSdk;
+
 import net.youmi.android.offers.OffersManager;
 
 import cn.waps.AppConnect;
@@ -33,6 +35,11 @@ public class TaskActivity  extends AppCompatActivity implements View.OnClickList
         ImageButton task2_image = (ImageButton) findViewById(R.id.task2_image);
         task2_image.setOnClickListener(this);
 
+        TableRow task3 = (TableRow) findViewById(R.id.task3);
+        task3.setOnClickListener(this);
+        ImageButton task3_image = (ImageButton) findViewById(R.id.task3_image);
+        task3_image.setOnClickListener(this);
+
         TextView back = (TextView) findViewById(R.id.task_back);
         back.setOnClickListener(this);
     }
@@ -50,6 +57,10 @@ public class TaskActivity  extends AppCompatActivity implements View.OnClickList
             case R.id.task2:
             case R.id.task2_image:
                 AppConnect.getInstance(this).showOffers(this);
+                break;
+            case R.id.task3:
+            case R.id.task3_image:
+                DRSdk.showAdWall(this, DRSdk.DR_OFFER);
                 break;
         }
     }

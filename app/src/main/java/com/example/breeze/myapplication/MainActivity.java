@@ -4,6 +4,8 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -15,7 +17,27 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.scottyab.aescrypt.AESCrypt;
+import com.squareup.picasso.Picasso;
+import com.yql.sdk.DRSdk;
+
+import net.youmi.android.AdManager;
 import net.youmi.android.offers.OffersManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.security.GeneralSecurityException;
 
 import cn.waps.AppConnect;
 import im.fir.sdk.FIR;
@@ -38,19 +60,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton button = (ImageButton) findViewById(R.id.button2);
         button.setOnClickListener(this);
 
-        TableRow task1 = (TableRow) findViewById(R.id.man_task1);
+        TableRow task1 = (TableRow) findViewById(R.id.main_task1);
         task1.setOnClickListener(this);
-        ImageButton man_task1_image = (ImageButton) findViewById(R.id.man_task1_image);
-        man_task1_image.setOnClickListener(this);
+        ImageButton main_task1_image = (ImageButton) findViewById(R.id.main_task1_image);
+        main_task1_image.setOnClickListener(this);
 
-        TableRow task2 = (TableRow) findViewById(R.id.man_task2);
+        TableRow task2 = (TableRow) findViewById(R.id.main_task2);
         task2.setOnClickListener(this);
-        ImageButton man_task2_image = (ImageButton) findViewById(R.id.man_task2_image);
-        man_task2_image.setOnClickListener(this);
+        ImageButton main_task2_image = (ImageButton) findViewById(R.id.main_task2_image);
+        main_task2_image.setOnClickListener(this);
+
+        TableRow task3 = (TableRow) findViewById(R.id.main_task3);
+        task3.setOnClickListener(this);
+        ImageButton main_task3_image = (ImageButton) findViewById(R.id.main_task3_image);
+        main_task3_image.setOnClickListener(this);
 
         TextView exchange = (TextView) findViewById(R.id.exchange);
         exchange.setOnClickListener(this);
 
+//        TextView help = (TextView) findViewById(R.id.help);
+//        help.setOnClickListener(this);
+
+        ImageButton about = (ImageButton) findViewById(R.id.about);
+        about.setOnClickListener(this);
 
         ImageButton button1 = (ImageButton) findViewById(R.id.button1);
         button1.setOnClickListener(this);
@@ -62,12 +94,84 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView uid_id = (TextView) findViewById(R.id.uid);
         uid_id.setText("体验号：" + String.valueOf(uid));
 
-        String nickname = user.getString("nickname", "xxxx");
+        String nickname = user.getString("nickname", "----");
         TextView nickname_id = (TextView) findViewById(R.id.nickname);
         nickname_id.setText(nickname);
 
-        String head_image = user.getString("head_image", "");
-        ImageView head_image_id = (ImageView) findViewById(R.id.head_image);
+        String headimage = user.getString("headimage", "");
+        ImageView i = (ImageView) findViewById(R.id.head_image);
+        Picasso.with(this).load(headimage).into(i);
+
+        viewIntegration();
+
+        String openid = user.getString("openid", "");
+        // 有米
+        OffersManager.getInstance(this).setCustomUserId(openid);
+        OffersManager.setUsingServerCallBack(true);
+        AdManager.getInstance(this).init("47dd68ac7484b076", "3c9dac355822f41d", false);
+
+        // 万普
+        AppConnect.getInstance("78a9c935d121f38c69595007cddc454b", openid, this);
+
+        // 点入
+        DRSdk.initialize(this, true, openid);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewIntegration();
+    }
+
+    private void viewIntegration() {
+        String JSONDataUrl = "http://w.mengzhuanapp.com/hz/a_update_score";
+        RequestQueue mRequestQueue = Volley.newRequestQueue(this);
+        String password = "nMHnw4a8mzVFKDJj";
+        SharedPreferences user = getSharedPreferences("userInfo", MODE_PRIVATE);
+
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("openid", AESCrypt.encrypt(password, user.getString("openid", "")));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (GeneralSecurityException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest jsonObjRequest = new JsonObjectRequest(Request.Method.POST, JSONDataUrl, obj, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    boolean isok = response.getBoolean("isok");
+                    JSONObject data = response.getJSONObject("data");
+                    if (isok == false) {
+                        String msg = data.getString("msg");
+                        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    TextView mbalance = (TextView) findViewById(R.id.mbalance);
+                    TextView today_score = (TextView) findViewById(R.id.today_score);
+                    mbalance.setText(data.getString("mbalance"));
+                    today_score.setText(data.getString("today_score"));
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("连接失败");
+                Toast.makeText(getApplicationContext(), "连接服务器失败", Toast.LENGTH_SHORT).show();
+            }
+
+
+        });
+
+        mRequestQueue.add(jsonObjRequest);
     }
 
     /**
@@ -84,14 +188,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button2:
                 redirectTo();
                 break;
-            case R.id.man_task1:
-            case R.id.man_task1_image:
+            case R.id.main_task1:
+            case R.id.main_task1_image:
                 OffersManager.getInstance(this).onAppLaunch();
                 OffersManager.getInstance(this).showOffersWall();
                 break;
-            case R.id.man_task2:
-            case R.id.man_task2_image:
+            case R.id.main_task2:
+            case R.id.main_task2_image:
                 AppConnect.getInstance(this).showOffers(this);
+                break;
+            case R.id.main_task3:
+            case R.id.main_task3_image:
+                DRSdk.showAdWall(this, DRSdk.DR_OFFER);
                 break;
             case R.id.exchange:
                 try {
@@ -109,6 +217,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button1:
             case R.id.button3:
                 Toast.makeText(this, "功能正在努力开发中.", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.help:
+
+                break;
+            case R.id.about:
+                Intent intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
                 break;
         }
     }

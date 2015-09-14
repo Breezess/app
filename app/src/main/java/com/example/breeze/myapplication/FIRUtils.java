@@ -27,7 +27,7 @@ public class FIRUtils {
             @Override public void onSuccess(final AppVersion appVersion, boolean b) {
 
                 if (appVersion.getVersionCode() == BuildConfig.VERSION_CODE) {
-                    if (isShowToast) Toast.makeText(context, "你已经是最新版本", Toast.LENGTH_SHORT).show();
+//                    if (isShowToast) Toast.makeText(context, "你已经是最新版本", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 try {
@@ -40,6 +40,11 @@ public class FIRUtils {
                                             appVersion.getUpdateUrl());
                                 }
                             })
+                            .setNegativeButton("取消更新", new DialogInterface.OnClickListener() {
+                                @Override public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            })
                             .create()
                             .show();
                     //IllegalStateException when using appcompAlertDialog or NullException when windows leak
@@ -48,16 +53,17 @@ public class FIRUtils {
                 }
             }
 
-            @Override public void onFail(String s, int i) {
-                if (isShowToast) Toast.makeText(context, "检查更新失败", Toast.LENGTH_SHORT).show();
+            @Override
+            public void onFail(String s, int i) {
+//                if (isShowToast) Toast.makeText(context, "检查更新失败", Toast.LENGTH_SHORT).show();
             }
 
             @Override public void onError(Exception e) {
-                if (isShowToast) Toast.makeText(context, "检查更新失败", Toast.LENGTH_SHORT).show();
+//                if (isShowToast) Toast.makeText(context, "检查更新失败", Toast.LENGTH_SHORT).show();
             }
 
             @Override public void onStart() {
-                if (isShowToast) Toast.makeText(context, "开始检查更新", Toast.LENGTH_SHORT).show();
+//                if (isShowToast) Toast.makeText(context, "开始检查更新", Toast.LENGTH_SHORT).show();
             }
 
             @Override public void onFinish() {

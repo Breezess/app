@@ -72,10 +72,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"
+                android:text="--"
                 android:gravity="center_horizontal|center_vertical"
                 android:textSize="25dp"
-                android:textColor="@color/blue" />
+                android:textColor="@color/blue"
+                android:id="@+id/today_score" />
             <!-- 水平居中 顶部对齐 -->
 
             <!-- 文本水平垂直居中 -->
@@ -110,11 +111,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="130"
+                android:text="--"
                 android:gravity="center_horizontal|center_vertical"
                 android:textSize="25dp"
                 android:textColor="@color/blue"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/mbalance" />
 
             <!-- 垂直居中 水平靠左 -->
             <TextView
@@ -235,7 +237,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:id="@+id/imageButton1"
+                    android:id="@+id/about"
                     android:src="@drawable/tab11"
                     android:background="#ECF5FF"
                     android:scaleType="centerCrop"
@@ -271,7 +273,53 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:id="@+id/man_task2">
+                    android:id="@+id/main_task3">
+
+                    <ImageButton
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/taskr"
+                        android:background="#ffffff"
+                        android:scaleType="fitCenter"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/main_task3_image"/>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingTop="3dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="点入任务区"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="任务多体验好，任务优质" />
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow android:layout_height="1px" android:background="#BDBDBD">
+                    <TextView android:layout_span="2" android:layout_height="1px"
+                        android:layout_width="fill_parent" android:text="">
+                    </TextView>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:id="@+id/main_task2">
 
                     <ImageButton
                         android:layout_width="50dp"
@@ -280,7 +328,7 @@
                         android:background="#ffffff"
                         android:scaleType="fitCenter"
                         android:layout_marginLeft="10dp"
-                        android:id="@+id/man_task2_image"/>
+                        android:id="@+id/main_task2_image"/>
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="wrap_content"
@@ -318,7 +366,7 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:longClickable="true"
-                    android:id="@+id/man_task1">
+                    android:id="@+id/main_task1">
 
                     <ImageButton
                         android:layout_width="50dp"
@@ -327,7 +375,7 @@
                         android:scaleType="centerCrop"
                         android:background="#ffffff"
                         android:layout_marginLeft="10dp"
-                        android:id="@+id/man_task1_image"/>
+                        android:id="@+id/main_task1_image"/>
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="wrap_content"
