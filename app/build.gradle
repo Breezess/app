@@ -20,9 +20,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile files('libs/YoumiSdk_v5.00_2015-01-08.jar')
     compile 'com.mcxiaoke.volley:library:1.0.18'
     compile files('libs/Bughd_android_sdk_v1.3.3.jar')
+    compile files('libs/gradle-wrapper.jar')
+    compile 'com.scottyab:aescrypt:0.0.1'
 }

@@ -2,6 +2,7 @@ package com.example.breeze.myapplication;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,6 +56,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button1.setOnClickListener(this);
         ImageButton button3 = (ImageButton) findViewById(R.id.button3);
         button3.setOnClickListener(this);
+
+        SharedPreferences user = getSharedPreferences("userInfo", MODE_PRIVATE);
+        int uid = user.getInt("uid", 0);
+        TextView uid_id = (TextView) findViewById(R.id.uid);
+        uid_id.setText("体验号：" + String.valueOf(uid));
+
+        String nickname = user.getString("nickname", "xxxx");
+        TextView nickname_id = (TextView) findViewById(R.id.nickname);
+        nickname_id.setText(nickname);
+
+        String head_image = user.getString("head_image", "");
+        ImageView head_image_id = (ImageView) findViewById(R.id.head_image);
     }
 
     /**

@@ -17,7 +17,7 @@
         >
 
         <com.example.breeze.myapplication.RoundImageView
-            android:id="@+id/comment_from_image"
+            android:id="@+id/head_image"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/photo"
@@ -31,8 +31,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Breeze"
-            android:id="@+id/textView"
-            android:layout_below="@+id/comment_from_image"
+            android:id="@+id/nickname"
+            android:layout_below="@+id/head_image"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:textSize="20dp"
@@ -44,8 +44,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="体验号：1205111"
-            android:id="@+id/textView2"
-            android:layout_below="@+id/textView"
+            android:id="@+id/uid"
+            android:layout_below="@+id/nickname"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
