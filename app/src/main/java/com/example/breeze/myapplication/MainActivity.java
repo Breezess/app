@@ -81,11 +81,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton help = (ImageButton) findViewById(R.id.help);
         help.setOnClickListener(this);
 
-//        TextView about = (TextView) findViewById(R.id.about);
-//        about.setOnClickListener(this);
+        TextView about = (TextView) findViewById(R.id.about);
+        about.setOnClickListener(this);
 
         ImageButton button1 = (ImageButton) findViewById(R.id.button1);
         button1.setOnClickListener(this);
+
         ImageButton button3 = (ImageButton) findViewById(R.id.button3);
         button3.setOnClickListener(this);
 
@@ -219,6 +220,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.help:
                 Intent intent = new Intent(this, HelpActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.about:
+                intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 break;
         }
