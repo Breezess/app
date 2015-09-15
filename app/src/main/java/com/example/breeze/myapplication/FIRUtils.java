@@ -3,7 +3,6 @@ package com.example.breeze.myapplication;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.widget.Toast;
 
 import im.fir.sdk.FIR;
 import im.fir.sdk.callback.VersionCheckCallback;
