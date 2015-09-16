@@ -1,5 +1,6 @@
 package com.example.breeze.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -35,6 +36,8 @@ import java.security.GeneralSecurityException;
 import cn.waps.AppConnect;
 import im.fir.sdk.FIR;
 
+import static com.example.breeze.myapplication.LoginActivity.getNetWorkType;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -44,9 +47,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setCustomView(R.layout.actionbar_main);
         setContentView(R.layout.activity_main);
 
-        FIR.init(this);
-        FIR.setDebug(true);
-        FIRUtils.checkForUpdate(this, true);
+        int net_type = getNetWorkType(this);
+        if (net_type == LoginActivity.NETWORKTYPE_WIFI) {
+            FIR.init(this);
+            FIR.setDebug(true);
+            FIRUtils.checkForUpdate(this, true);
+        }
 
         ImageButton button = (ImageButton) findViewById(R.id.button2);
         button.setOnClickListener(this);
