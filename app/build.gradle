@@ -8,8 +8,8 @@ android {
         applicationId "so.hongbao.ahaizei"
         minSdkVersion 15
         targetSdkVersion 15
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 4
+        versionName "1.0.3"
     }
     buildTypes {
         release {
@@ -27,5 +27,4 @@ dependencies {
     compile files('libs/Bughd_android_sdk_v1.3.3.jar')
     compile files('libs/gradle-wrapper.jar')
     compile 'com.scottyab:aescrypt:0.0.1'
-    compile files('libs/dianru_sdk_v1.0.8.jar')
 }

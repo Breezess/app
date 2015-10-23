@@ -23,7 +23,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.scottyab.aescrypt.AESCrypt;
 import com.squareup.picasso.Picasso;
-import com.yql.sdk.DRSdk;
+//import com.yql.sdk.DRSdk;
 
 import net.youmi.android.AdManager;
 import net.youmi.android.offers.OffersManager;
@@ -67,11 +67,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton main_task2_image = (ImageButton) findViewById(R.id.main_task2_image);
         main_task2_image.setOnClickListener(this);
 
-        TableRow task3 = (TableRow) findViewById(R.id.main_task3);
-        task3.setOnClickListener(this);
-        ImageButton main_task3_image = (ImageButton) findViewById(R.id.main_task3_image);
-        main_task3_image.setOnClickListener(this);
-
         TextView exchange = (TextView) findViewById(R.id.exchange);
         exchange.setOnClickListener(this);
 
@@ -112,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AppConnect.getInstance("78a9c935d121f38c69595007cddc454b", openid, this);
 
         // 点入
-        DRSdk.initialize(this, true, openid);
+//        DRSdk.initialize(this, true, openid);
     }
 
     @Override
@@ -194,10 +189,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_task2_image:
                 AppConnect.getInstance(this).showOffers(this);
                 break;
-            case R.id.main_task3:
-            case R.id.main_task3_image:
-                DRSdk.showAdWall(this, DRSdk.DR_OFFER);
-                break;
+//            case R.id.main_task3:
+//            case R.id.main_task3_image:
+//                DRSdk.showAdWall(this, DRSdk.DR_OFFER);
+//                break;
             case R.id.exchange:
                 try {
                     PackageManager packageManager = getPackageManager();
